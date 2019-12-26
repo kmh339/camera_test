@@ -2,6 +2,8 @@ import 'dart:io';
 import 'dart:async';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,6 +27,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future getImage() async {
     var image = await ImagePicker.pickImage(source: ImageSource.camera);
+
+    //Directory pathDirectory = await getApplicationDocumentsDirectory();
+    //String path = pathDirectory.path;
+
+    //File newImage = await image.copy('$path/image1.png');
 
     setState(() {
       _image = image;
